@@ -28,16 +28,6 @@
       "src": "/labreport/labreport2.png",
       "type": "image/png",
       "sizes": "1366x768"
-    },
-    {
-      "src": "/labreport/labreportmobile1.jpeg",
-      "type": "image/jpeg",
-      "sizes": "540x1080"
-    },
-    {
-      "src": "/labreport/labreportmobile2.jpeg",
-      "type": "image/jpeg",
-      "sizes": "540x1080"
     }
     
   ]
