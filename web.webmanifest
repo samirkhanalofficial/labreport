@@ -1,0 +1,44 @@
+{
+  "short_name": "LabReport",
+  "name": "LabReport By Samir Khanal",
+  "icons": [
+    {
+      "src": "/labreport/logo.ico",
+      "type": "image/ico",
+      "sizes": "800x600"
+    },
+    {
+      "src": "/labreport/logo.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/labreport",
+  "background_color": "#000000",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "description": "LabReport for Chirayu PolyClinic",
+  "screenshots": [
+    {
+      "src": "/labreport/labreport1.png",
+      "type": "image/png",
+      "sizes": "1366x768"
+    },
+    {
+      "src": "/labreport/labreport2.png",
+      "type": "image/png",
+      "sizes": "1366x768"
+    },
+    {
+      "src": "/labreport/labreportmobile1.png",
+      "type": "image/png",
+      "sizes": "540x1080"
+    },
+    {
+      "src": "/labreport/labreportmobile2.png",
+      "type": "image/png",
+      "sizes": "540x1080"
+    }
+    
+  ]
+}
