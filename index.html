@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="logo.jpg">
+
+
+    <style>
+        .nav font {
+            line-height: 35px;
+        }
+        
+        .nav .nav-link {
+            color: white;
+            display: inline-block;
+            padding: 5px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nav .nav-link:hover,
+        .nav .nav-link:active,
+        .nav .nav-link:focus {
+            border-bottom: 2px solid white!important;
+        }
+        
+        .card {
+            border-radius: 15px;
+            min-height: 200px;
+            box-shadow: 2px 2px 9px grey;
+            padding: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" style="background:black;color:white;padding:10px;position:fixed;width:100%;z-index:99;height:55px;overflow:hidden;">
+        <font size="4">Lab<b style="color:red;">Report</b></font>
+        <div style="float:right;width:auto;">
+            <a href="javascript:print()" class="nav-link"><span class="glyphicon glyphicon-print"></span> print </a>
+
+
+        </div>
+    </nav>
+    <div class="hid" style="height:55px;"></div>
+    <style>
+        .printeronly {
+            display: none!important;
+        }
+        
+        @media print {
+            * {
+                padding: 0px!important;
+                margin: 0px!important;
+            }
+            nav {
+                display: none;
+            }
+            input {
+                border: none!important;
+                text-align: right;
+                padding: 0px!important;
+            }
+            td {
+                padding: 0px 0px!important;
+                vertical-align: middle!important;
+            }
+            .seperate {
+                display: block;
+                width: 100%;
+                padding: 0!important;
+                margin: 0!important;
+                border: none!important;
+            }
+            .printpager {
+                height: 98vh!important;
+                overflow: hidden;
+            }
+            table {
+                width: 100%!important;
+                margin: 0 auto;
+                border: none!important;
+            }
+            table tr {
+                padding: 0px!important;
+                margin: 0px!important;
+            }
+            table tr td {
+                padding: 0px!important;
+                margin: 0px!important;
+            }
+            table table tr {
+                padding: 0px!important;
+                margin: 0px!important;
+            }
+            table table tr td {
+                padding: 0px!important;
+                margin: 0px!important;
+                font-size: 9px;
+            }
+            .printer {
+                text-align: center;
+            }
+            .hid {
+                display: none;
+            }
+            input[type=checkbox] {
+                display: none;
+            }
+            .prnt-btn {
+                display: none;
+            }
+            .printeronly {
+                display: block!important;
+            }
+        }
+    </style>
+    <div class="container prnt-btn">
+        <h2>Report Details</h2>
+        <b>Patient Name:</b>
+        <input type="text" style='width:50%;' class="form-control" onkeyup='document.querySelectorAll(".ptname").forEach(elm=>elm.innerHTML=this.value);'>
+        <b> Sex: </b>
+        <select name='sex' onchange='document.querySelectorAll(".ptsex").forEach(elm=>elm.innerHTML=this.value);'>
+<option value="male">male</option>
+<option value="female">female</option>
+</select>
+        <b>Patient Age:</b>
+        <input type="number" style="width:50px;" onchange='document.querySelectorAll(".ptage").forEach(elm=>elm.innerHTML=this.value);' onkeyup='document.querySelectorAll(".ptage").forEach(elm=>elm.innerHTML=this.value);'>
+        <br><b>Ref. By Doctor:</b>
+        <input type="text" style='width:50%;' class="form-control" onkeyup='document.querySelectorAll(".refdr").forEach(elm=>elm.innerHTML=this.value);'>
+        <br>
+    </div>
+    <button type="submit" class="btn btn-primary prnt-btn" onclick="window.print();" style="position:fixed!important; right:10px!important;bottom:10px!important;"> <span class="glyphicon glyphicon-print"></span> Print</button>
+
+    <table class="table" style="margin:0;padding:0;">
+        <tr>
+            <td class='seperate'>
+
+                <input type="checkbox" name="Haematologycheckbox" id="Haematologycheckbox" onclick="show('Haematology')">
+
+                <div class="Haematology hid printer printpager">
+                    <div class="printeronly">
+                        <div style="float:left;">
+                            <p align='left'>
+
+                                <b>
+<span style="font-size:20px;">
+प्राज्ञिक प्याथोली ल्याब</span></b><br> भरतपुर -१८ चनौली चितवन<br>Mobile: 9855046314<br>
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div style="float:right;" class='printeronly'>
+                        <p align="left">
+                            <br>
+                            <br> Patient Name: <span class="ptname"></span><br> Date: 2021-05-28 || Age: <span class="ptage"></span> || Sex : <span class="ptsex">Male</span><br> Checked By : Samir Khanal <br> Ref by Dr. <span class="refdr"></span>
+
+
+                        </p>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <center>
+                        <b>Report on Haematology : </b>
+                    </center>
+                    <table class="table ">
+                        <tr style='color:white;background:black;text-align:left;'>
+                            <td><b><br>Tests<br><br></b></td>
+                            <td style='text-align:center;padding-top:10px;padding-bottom:10px;'><b><br>Normal Result<br><br></b></td>
+                            <td style='text-align:right;'><b><br>Obt. Result<br><br></b></td>
+                        </tr>
+                        <tr>
+                            <td style='text-align:left;'>WBC</td>
+                            <td style='text-align:center;'>4000-11000/mm<sup>3</sup></p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>RBC</td>
+                            <td style='text-align:center;'>4-5.5*10<sup>5</sup>mm<sup>2</sup></p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Platelet</td>
+                            <td style='text-align:center;'>1.5-4.5*10<sup>5</sup>/mm<sup>3</sup></p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'><b>Differential Count</b></td>
+                            <td style='text-align:center;'>
+                                </p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Neutrophil</td>
+                            <td style='text-align:center;'>(45-70%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Lymphocyte</td>
+                            <td style='text-align:center;'>20-40%</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Eosinophil</td>
+                            <td style='text-align:center;'>(2-6%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Monocycle</td>
+                            <td style='text-align:center;'>(0-1%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Basophil</td>
+                            <td style='text-align:center;'>(0-1%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Hb%</td>
+                            <td style='text-align:center;'>(12-16gm/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>ESR (whitrobe method)</td>
+                            <td style='text-align:center;'>(0-20 mm/1st hr)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>PCV</td>
+                            <td style='text-align:center;'>(36-54%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>BT</td>
+                            <td style='text-align:center;'>(2-7 min)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>CT</td>
+                            <td style='text-align:center;'>(6-12 min)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>P.T.</td>
+                            <td style='text-align:center;'>(13 sec)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>MP/MF</td>
+                            <td style='text-align:center;'>
+                                </p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                    </table>
+                    <hr>
+                    <p align='left'><b>Miscellaneous Report:</b><input type='text'>
+                        <div class='printeronly' style='float:left;'><b><br><br>____________________________<br> Medical Lab Assistant</b></div>
+                        <div class='printeronly' style='float:right;'><b><br><br>____________________________<br> Medical Lab Technical</b></div>
+                    </p><br><br></div>
+                </td>
+                <td class='seperate'>
+                    <input type="checkbox" name="Immunologycheckbox" id="Immunologycheckbox" onclick="show('Immunology')">
+
+                    <div class="Immunology hid printer printpager">
+                        <div class="printeronly">
+                            <div style="float:left;">
+                                <p align='left'>
+
+                                    <b>
+<span style="font-size:20px;">
+प्राज्ञिक प्याथोली ल्याब</span></b><br> भरतपुर -१८ चनौली चितवन<br>Mobile: 9855046314<br>
+
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div style="float:right;" class='printeronly'>
+                            <p align="left">
+                                <br>
+                                <br> Patient Name: <span class="ptname"></span><br> Date: 2021-05-28 || Age: <span class="ptage"></span> || Sex : <span class="ptsex">Male</span><br> Checked By : Samir Khanal <br> Ref by Dr. <span class="refdr"></span>
+
+
+                            </p>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <center>
+                            <b>Report on Immunology : </b>
+                        </center>
+                        <table class="table ">
+                            <tr style='color:white;background:black;text-align:left;'>
+                                <td><b><br>Tests<br><br></b></td>
+                                <td style='text-align:right;'><b><br>Obt. Result<br><br></b></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align:left;'>VDRL</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>TPHA</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>HIV: I & II</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>HBs. Ag</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>H. C. V.</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>A.S.O. titre</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>CRP</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>R.A. Factor</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Salmonella Agglutiation (widal) test</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>'O' Antigen Shows (titre)</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>'H' Antigen Shows (titre)</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>'AH' Antigen Show (titre)</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>'BH' Antigen Show (titre)</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Mantoux test</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'><b>Blood group & RH</b></td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'><b>Pregnancy test</b></td>
+                                <td><input type='text' class='form-control'></tr>
+                        </table>
+                        <hr>
+                        <p align='left'><b>Miscellaneous Report:</b><input type='text'>
+                            <div class='printeronly' style='float:left;'><b><br><br>____________________________<br> Medical Lab Assistant</b></div>
+                            <div class='printeronly' style='float:right;'><b><br><br>____________________________<br> Medical Lab Technical</b></div>
+                        </p><br><br></div>
+                    </td>
+        </tr>
+        <tr>
+            <td class='seperate'>
+
+                <input type="checkbox" name="Bio-Chemistrycheckbox" id="Bio-Chemistrycheckbox" onclick="show('Bio-Chemistry')">
+
+                <div class="Bio-Chemistry hid printer printpager">
+                    <div class="printeronly">
+                        <div style="float:left;">
+                            <p align='left'>
+
+                                <b>
+<span style="font-size:20px;">
+प्राज्ञिक प्याथोली ल्याब</span></b><br> भरतपुर -१८ चनौली चितवन<br>Mobile: 9855046314<br>
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div style="float:right;" class='printeronly'>
+                        <p align="left">
+                            <br>
+                            <br> Patient Name: <span class="ptname"></span><br> Date: 2021-05-28 || Age: <span class="ptage"></span> || Sex : <span class="ptsex">Male</span><br> Checked By : Samir Khanal <br> Ref by Dr. <span class="refdr"></span>
+
+
+                        </p>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <center>
+                        <b>Report on Bio-Chemistry : </b>
+                    </center>
+                    <table class="table ">
+                        <tr style='color:white;background:black;text-align:left;'>
+                            <td><b><br>Tests<br><br></b></td>
+                            <td style='text-align:center;padding-top:10px;padding-bottom:10px;'><b><br>Normal Result<br><br></b></td>
+                            <td style='text-align:right;'><b><br>Obt. Result<br><br></b></td>
+                        </tr>
+                        <tr>
+                            <td style='text-align:left;'>Sugar(F)</td>
+                            <td style='text-align:center;'>(60-126mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Sugar(PP)</td>
+                            <td style='text-align:center;'>(70-140mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Sugar(R)</td>
+                            <td style='text-align:center;'>(60-140mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Urea</td>
+                            <td style='text-align:center;'>(10-45mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Creatnine</td>
+                            <td style='text-align:center;'>(0.4-1.4mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Sodium</td>
+                            <td style='text-align:center;'>(130-155 mmol/l)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Potassium</td>
+                            <td style='text-align:center;'>(3.5-5.5 mmol/l)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Cholesterol</td>
+                            <td style='text-align:center;'>(130-200 gm/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Triglyceride</td>
+                            <td style='text-align:center;'>(up to 200mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>HD-Cholesterol</td>
+                            <td style='text-align:center;'>(M: 55-35, F: 65-45 mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>LDL Cholesterol</td>
+                            <td style='text-align:center;'>(70-175mg/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Billrubin Total</td>
+                            <td style='text-align:center;'>(0.4-1.4 mg%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Billrubin Direct</td>
+                            <td style='text-align:center;'>(0.1-0.4 mg%)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>SGPT</td>
+                            <td style='text-align:center;'>(3-35 U/L)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>SGOT</td>
+                            <td style='text-align:center;'>(5-40 U/L)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>ALK Phos.</td>
+                            <td style='text-align:center;'>(Up to 300 U/L)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Proteing</td>
+                            <td style='text-align:center;'>(6-8gm/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Albumin</td>
+                            <td style='text-align:center;'>(3.7-5.2 gm/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Globulin</td>
+                            <td style='text-align:center;'>(2.3-3.6gm/dl)</p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Amylase</td>
+                            <td style='text-align:center;'>
+                                </p>
+                            </td>
+                            <td><input type='text' class='form-control'></tr>
+                    </table>
+                    <hr>
+                    <p align='left'><b>Miscellaneous Report:</b><input type='text'>
+                        <div class='printeronly' style='float:left;'><b><br><br>____________________________<br> Medical Lab Assistant</b></div>
+                        <div class='printeronly' style='float:right;'><b><br><br>____________________________<br> Medical Lab Technical</b></div>
+                    </p><br><br></div>
+                </td>
+                <td class='seperate'>
+                    <input type="checkbox" name="Stool Testcheckbox" id="Stool Testcheckbox" onclick="show('Stool Test')">
+
+                    <div class="Stool Test hid printer printpager">
+                        <div class="printeronly">
+                            <div style="float:left;">
+                                <p align='left'>
+
+                                    <b>
+<span style="font-size:20px;">
+प्राज्ञिक प्याथोली ल्याब</span></b><br> भरतपुर -१८ चनौली चितवन<br>Mobile: 9855046314<br>
+
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div style="float:right;" class='printeronly'>
+                            <p align="left">
+                                <br>
+                                <br> Patient Name: <span class="ptname"></span><br> Date: 2021-05-28 || Age: <span class="ptage"></span> || Sex : <span class="ptsex">Male</span><br> Checked By : Samir Khanal <br> Ref by Dr. <span class="refdr"></span>
+
+
+                            </p>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <center>
+                            <b>Report on Stool Test : </b>
+                        </center>
+                        <table class="table ">
+                            <tr style='color:white;background:black;text-align:left;'>
+                                <td><b><br>Tests<br><br></b></td>
+                                <td style='text-align:right;'><b><br>Obt. Result<br><br></b></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align:left;'><b>Physical Exam</b></td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Colour</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>MUCUS</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Blood</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Consistency</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'><b>Chemical Exam</b></td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Occult Blood</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'><b>Microscopic Exam</b></td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>RBC</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>PUS Cells</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Cyst/Trophozite</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Parasite</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Ova</td>
+                                <td><input type='text' class='form-control'></tr>
+                            <tr>
+                                <td style='text-align:left;'>Others</td>
+                                <td><input type='text' class='form-control'></tr>
+                        </table>
+                        <hr>
+                        <p align='left'><b>Miscellaneous Report:</b><input type='text'>
+                            <div class='printeronly' style='float:left;'><b><br><br>____________________________<br> Medical Lab Assistant</b></div>
+                            <div class='printeronly' style='float:right;'><b><br><br>____________________________<br> Medical Lab Technical</b></div>
+                        </p><br><br></div>
+                    </td>
+        </tr>
+        <tr>
+
+            <td class='seperate'>
+                <input type="checkbox" name="Urine Testcheckbox" id="Urine Testcheckbox" onclick="show('Urine Test')">
+
+                <div class="Urine Test hid printer printpager">
+                    <div class="printeronly">
+                        <div style="float:left;">
+                            <p align='left'>
+
+                                <b>
+<span style="font-size:20px;">
+प्राज्ञिक प्याथोली ल्याब</span></b><br> भरतपुर -१८ चनौली चितवन<br>Mobile: 9855046314<br>
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div style="float:right;" class='printeronly'>
+                        <p align="left">
+                            <br>
+                            <br> Patient Name: <span class="ptname"></span><br> Date: 2021-05-28 || Age: <span class="ptage"></span> || Sex : <span class="ptsex">Male</span><br> Checked By : Samir Khanal <br> Ref by Dr. <span class="refdr"></span>
+
+
+                        </p>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <center>
+                        <b>Report on Urine Test : </b>
+                    </center>
+                    <table class="table ">
+                        <tr style='color:white;background:black;text-align:left;'>
+                            <td><b><br>Tests<br><br></b></td>
+                            <td style='text-align:right;'><b><br>Obt. Result<br><br></b></td>
+                        </tr>
+                        <tr>
+                            <td style='text-align:left;'><b>Physical Exam</b></td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Colour</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Transparency</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Reaction</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Sp. gr.</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'><b>Chemical Exam</b></td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Sugar</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Albumin</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Ketone bodies</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Bile Salt</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Bile Pigments</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Urobilinogen</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Chyle</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'><b>Microscopic Exam</b></td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Plus Cells</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>RBC</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Cast</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Crystals</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Ep Cells</td>
+                            <td><input type='text' class='form-control'></tr>
+                        <tr>
+                            <td style='text-align:left;'>Others</td>
+                            <td><input type='text' class='form-control'></tr>
+                    </table>
+                    <hr>
+                    <p align='left'><b>Miscellaneous Report:</b><input type='text'>
+                        <div class='printeronly' style='float:left;'><b><br><br>____________________________<br> Medical Lab Assistant</b></div>
+                        <div class='printeronly' style='float:right;'><b><br><br>____________________________<br> Medical Lab Technical</b></div>
+                    </p><br><br></div>
+                </td>
+                <td class='seperate'>
+
+
+                </td>
+        </tr>
+    </table>
+
+    <script>
+        function show(cc) {
+            if (cc == "Urine Test") {
+                cc = "Urine";
+            }
+            if (cc == "Stool Test") {
+                cc = "Stool";
+            }
+            var y = document.querySelector("." + cc);
+            if (y.classList.contains('hid')) {
+                y.classList.remove('hid');
+            } else {
+                y.classList.add('hid');
+            }
+
+        }
+    </script>
