@@ -5,12 +5,12 @@
     {
       "src": "/labreport/logo.ico",
       "type": "image/ico",
-      "sizes": "800x600"
+      "sizes": "256x192"
     },
     {
       "src": "/labreport/logo.jpg",
       "type": "image/jpg",
-      "sizes": "512x512"
+      "sizes": "800x600"
     }
   ],
   "start_url": "/labreport",
@@ -30,13 +30,13 @@
       "sizes": "1366x768"
     },
     {
-      "src": "/labreport/labreportmobile1.png",
-      "type": "image/png",
+      "src": "/labreport/labreportmobile1.jpeg",
+      "type": "image/jpeg",
       "sizes": "540x1080"
     },
     {
-      "src": "/labreport/labreportmobile2.png",
-      "type": "image/png",
+      "src": "/labreport/labreportmobile2.jpeg",
+      "type": "image/jpeg",
       "sizes": "540x1080"
     }
     
