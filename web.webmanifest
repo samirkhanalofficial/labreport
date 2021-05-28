@@ -1,6 +1,7 @@
 {
   "short_name": "LabReport",
   "name": "LabReport By Samir Khanal",
+  "scope":"/labreport",
   "icons": [
     {
       "src": "/labreport/48x48.png",
